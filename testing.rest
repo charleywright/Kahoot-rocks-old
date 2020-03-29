@@ -1,0 +1,8 @@
+POST http://127.0.0.1:3000/
+content-type: application/json
+
+{
+    "Pin": 2568687,
+    "Username": "CoreySmallBrai",
+    "Delay": 100
+}
