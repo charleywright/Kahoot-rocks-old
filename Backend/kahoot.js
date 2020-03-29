@@ -1,6 +1,6 @@
 // Environment vars
-process.env.EMAIL = "charleywright06@gmail.com";
-process.env.PASSWORD = "Cha51wrt";
+process.env.EMAIL = "";
+process.env.PASSWORD = "";
 process.env.PORT = 3003;
 
 let Kahoots = [];
