@@ -1,0 +1,8 @@
+POST https://api.charleyw.com/Kahoot/register
+content-type: application/json
+
+{
+    "user": "CoreySmallBrain",
+    "password": "Noodles",
+    "key": "ntoo4xoWaeU9hP6yvgo0PNq9d"
+}
