@@ -1,26 +1,22 @@
 {
-	"name": "kahoot.charleyw.com",
+	"name": "kahoot-auto-answer",
 	"version": "1.0.0",
-	"description": "Kahoot auto answer bot",
-	"main": "kahoot.js",
+	"description": "",
+	"main": "index.js",
 	"scripts": {
-		"Dev": "nodemon index.js",
-		"Install": "npm i package.json",
-		"Install-Puppeteer": "npm install puppeteer"
+		"dev": "nodemon index.js",
+		"run": "node index.js"
 	},
 	"author": "Charley Wright",
 	"license": "ISC",
-	"dependencies": {
-		"bcrypt": "^3.0.8",
-		"cors": "^2.8.5",
-		"express": "^4.17.1",
-		"kahoot.js-updated": "^1.1.20",
-		"package.json": "^2.0.1",
-		"puppeteer": "^2.1.1",
-		"socket.io": "^2.3.0",
-		"utf-8-validate": "^5.0.2"
-	},
 	"devDependencies": {
 		"nodemon": "^2.0.2"
+	},
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"kahoot.js-updated": "^1.2.11",
+		"node-fetch": "^2.6.0"
 	}
 }
