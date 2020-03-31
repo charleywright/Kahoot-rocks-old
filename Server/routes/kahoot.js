@@ -53,6 +53,7 @@ function Go(PIN, USERNAME, DELAY) {
 				if (QUIZ.type == newBody.quizType) {
 					let QuestionsTemp = [];
 					let AnswersTemp = [];
+					let AnswersText = [];
 					newBody.questions.forEach((question, index) => {
 						if (
 							newBody.questions[index].choices.length !=
@@ -64,6 +65,7 @@ function Go(PIN, USERNAME, DELAY) {
 						question.choices.forEach((choice, index) => {
 							if (!gotAnswer && choice.correct == true) {
 								AnswersTemp.push(index);
+								AnswersText.push(choice.answer);
 								gotAnswer = true;
 							}
 						});
@@ -73,7 +75,8 @@ function Go(PIN, USERNAME, DELAY) {
 							Name: newBody.title,
 							Uuid: newBody.uuid,
 							Questions: QuestionsTemp,
-							Answers: AnswersTemp
+							Answers: AnswersTemp,
+							AnswersText: AnswersText
 						});
 						gotAnswers = true;
 					}
@@ -88,6 +91,17 @@ function Go(PIN, USERNAME, DELAY) {
 					Question.answer(Kahoots[0].Answers[Question.index]);
 				}
 			}, DELAY);
+		});
+
+		client.on("questionEnd", QuestionEnd => {
+			Kahoots.forEach((Kahoot, index) => {
+				if (
+					Kahoot.AnswersText[QuestionEnd.question.index] !=
+					QuestionEnd.correctAnswer
+				) {
+					Kahoots.splice(index);
+				}
+			});
 		});
 	});
 }
