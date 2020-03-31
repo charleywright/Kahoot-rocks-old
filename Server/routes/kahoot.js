@@ -13,24 +13,26 @@ module.exports = (function() {
 		let username = req.body.username;
 		let delay = req.body.delay;
 		if (pin == undefined || username == undefined || delay == undefined) {
-			res.end("Information incorrect");
+			res.status(400).end("Information incorrect");
 			return;
 		}
 		if (isNaN(pin) || isNaN(delay)) {
-			res.end("Pin or Delay is not a number");
+			res.status(400).end("Pin or Delay is not a number");
 			return;
 		}
-		Go(pin, username, delay);
-		res.end("All good");
+
+		Go(pin, username, delay, res);
 	});
 	return kahootRoute;
 })();
 
-function Go(PIN, USERNAME, DELAY) {
+async function Go(PIN, USERNAME, DELAY, RESPONSE) {
 	let Kahoots = [];
 	let gotAnswers = false;
 	const client = new Kahoot();
+
 	client.join(PIN, USERNAME);
+
 	client.on("quizStart", async QUIZ => {
 		let regExp = /\s+/g;
 		let URL = `https://create.kahoot.it/rest/kahoots/?query=${QUIZ.name}&cursor=0&limit=50&topics=&grades=&orderBy=relevance&searchCluster=1&includeExtendedCounters=false`;
