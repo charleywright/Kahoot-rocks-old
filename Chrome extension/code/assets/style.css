@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+body {
+	-webkit-animation: bgcolor 20s infinite;
+	animation: bgcolor 10s infinite;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	font-family: "Monstserrat", sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* height: 98vh; */
+}
+
+.wrapper {
+	text-align: center;
+}
+
+.img {
+	height: 108px;
+}
+
+input,
+button {
+	display: block;
+	margin: 8px auto;
+}
+
+input {
+	font-family: "Montserrat", sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	width: 200px;
+	height: 35px;
+	text-align: center;
+	color: #a1a1a1;
+	border-style: solid;
+	border-width: 1px;
+	text-emphasis: bold;
+}
+
+button {
+	background-color: rgb(51, 51, 51);
+	border-style: solid;
+	border-color: rgb(51, 51, 51);
+	color: #fff;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.25em;
+	font-weight: 700;
+	width: 205px;
+	height: 45px;
+	transition: 0.1s ease-in-out;
+}
+
+button:hover {
+	scale: 1.005;
+}
+
+a {
+	display: block;
+	color: #fff;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+@keyframes bgcolor {
+	0% {
+		background-color: rgb(65, 196, 222);
+	}
+	30% {
+		background-color: rgb(140, 199, 63);
+	}
+	60% {
+		background-color: rgb(243, 211, 51);
+	}
+	90% {
+		background-color: rgb(247, 142, 86);
+	}
+	100% {
+		background-color: #aa81d2;
+	}
+}
+
+@-webkit-keyframes bgcolor
+/* Safari and Chrome - necessary duplicate */ {
+	0% {
+		background-color: rgb(65, 196, 222);
+	}
+	30% {
+		background-color: rgb(140, 199, 63);
+	}
+	60% {
+		background-color: rgb(243, 211, 51);
+	}
+	90% {
+		background-color: rgb(247, 142, 86);
+	}
+	100% {
+		background-color: #aa81d2;
+	}
+}
