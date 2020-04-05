@@ -16,7 +16,8 @@
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
-		"kahoot.js-updated": "^1.2.12",
-		"node-fetch": "^2.6.0"
+		"kahoot.js-updated": "^1.2.13",
+		"node-fetch": "^2.6.0",
+		"promise": "^8.1.0"
 	}
 }

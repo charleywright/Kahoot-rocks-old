@@ -26,12 +26,18 @@ module.exports = (function() {
 	return kahootRoute;
 })();
 
-async function Go(PIN, USERNAME, DELAY, RESPONSE) {
+function Go(PIN, USERNAME, DELAY, RESPONSE) {
 	let Kahoots = [];
 	let gotAnswers = false;
-	const client = new Kahoot();
+	var client = new Kahoot();
 
-	client.join(PIN, USERNAME);
+	const result = client.join(PIN, USERNAME);
+	console.log(result);
+	if (result._W != null) {
+		console.log("Something");
+	} else {
+		console.log("Something else");
+	}
 
 	client.on("quizStart", async QUIZ => {
 		let regExp = /\s+/g;

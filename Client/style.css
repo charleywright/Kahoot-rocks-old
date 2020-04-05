@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"); */
 body {
 	-webkit-animation: bgcolor 20s infinite;
 	animation: bgcolor 10s infinite;
@@ -76,6 +76,17 @@ footer .Kahoot {
 
 .hidden {
 	display: none;
+}
+
+.output {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+}
+
+.output-header {
+	font-size: 30px;
 }
 
 @keyframes bgcolor {
