@@ -30,7 +30,7 @@ function Submit() {
 		case "Answer delay (ms)":
 			if (document.querySelector("input").value != "") {
 				if (isNaN(document.querySelector("input").value)) {
-					alert("Game pin has to be a number");
+					alert("Answer delay has to be a number");
 				} else {
 					Delay = document.querySelector("input").value;
 					Show();
@@ -49,15 +49,15 @@ async function SendRequest(PIN, USERNAME, DELAY) {
 	const data = {
 		pin: PIN,
 		username: USERNAME,
-		delay: DELAY
+		delay: DELAY,
 	};
 
 	const options = {
 		method: "POST",
 		headers: {
-			"content-type": "application/json"
+			"content-type": "application/json",
 		},
-		body: JSON.stringify(data)
+		body: JSON.stringify(data),
 	};
 
 	let res = await fetch(RequestURL, options);
@@ -70,7 +70,7 @@ async function SendRequest(PIN, USERNAME, DELAY) {
 			Show("Invalid game PIN");
 			break;
 		case "Information incorrect":
-			Show("Incorrect information");
+			Show("Information in incorrect format");
 			break;
 		case "Pin or Delay is not a number":
 			Show("Pin or Delay is not a number");
