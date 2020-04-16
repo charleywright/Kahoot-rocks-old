@@ -1,3 +1,5 @@
+const RequestURL = "http://127.0.0.1:5000/kahoot/"; // This is the URL where the server is located, currently it is set to work for localhost
+
 let Pin = 0;
 let Username = "wag1memeing.com";
 let Delay = 0;
@@ -44,8 +46,6 @@ function Submit() {
 }
 
 async function SendRequest(PIN, USERNAME, DELAY) {
-	const RequestURL = "http://127.0.0.1:5000/kahoot/";
-
 	const data = {
 		pin: PIN,
 		username: USERNAME,
@@ -64,7 +64,7 @@ async function SendRequest(PIN, USERNAME, DELAY) {
 
 	switch (await res.text()) {
 		case "All good":
-			Show("Request succesfull");
+			Show("Request successful");
 			break;
 		case "Incorrect pin":
 			Show("Invalid game PIN");

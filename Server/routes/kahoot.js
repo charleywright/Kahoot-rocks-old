@@ -31,13 +31,11 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
 	let gotAnswers = false;
 	var client = new Kahoot();
 
-	const result = client.join(PIN, USERNAME);
-	console.log(result);
-	if (result._W != null) {
-		console.log("Something");
-	} else {
-		console.log("Something else");
-	}
+	const test = client.join(PIN, USERNAME).then(a=>{
+		RESPONSE.status(200).end("All good");
+	}).catch(e=>{
+		RESPONSE.status(400).end("Incorrect pin");
+	});
 
 	client.on("quizStart", async QUIZ => {
 		let regExp = /\s+/g;
