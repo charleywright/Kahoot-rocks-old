@@ -1,0 +1,36 @@
+@keyframes bgcolor {
+  0% {
+    background-color: rgb(65, 196, 222);
+  }
+  30% {
+    background-color: rgb(140, 199, 63);
+  }
+  60% {
+    background-color: rgb(243, 211, 51);
+  }
+  90% {
+    background-color: rgb(247, 142, 86);
+  }
+  100% {
+    background-color: #aa81d2;
+  }
+}
+
+@-webkit-keyframes bgcolor
+    /* Safari and Chrome - necessary duplicate */ {
+  0% {
+    background-color: rgb(65, 196, 222);
+  }
+  30% {
+    background-color: rgb(140, 199, 63);
+  }
+  60% {
+    background-color: rgb(243, 211, 51);
+  }
+  90% {
+    background-color: rgb(247, 142, 86);
+  }
+  100% {
+    background-color: #aa81d2;
+  }
+}
