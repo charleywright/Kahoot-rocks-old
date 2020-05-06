@@ -160,7 +160,7 @@ export default {
     usernameRules: [
       value => !!value || "Required.",
       value => {
-        let regex = /^[a-zA-Z0-9]*$/g;
+        let regex = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
         return regex.test(value) || "Cannot contain special characters";
       }
     ],
