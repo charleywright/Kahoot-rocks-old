@@ -148,12 +148,12 @@ export default {
       },
       {
         link: "https://wag1memeing.com/discord",
-        icon: "bx:bx-dollar",
+        icon: "fa-brands:discord",
         msg: "Discord"
       },
       {
         link: "https://paypal.me/charleyw0",
-        icon: "whh:website",
+        icon: "bx:bx-dollar",
         msg: "Donate"
       }
     ],
