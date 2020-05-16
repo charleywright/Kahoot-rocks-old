@@ -5,7 +5,7 @@ module.exports = (function() {
 	"use strict";
 	const kahootRoute = require("express").Router();
 	kahootRoute.get("/", function(req, res) {
-		res.send("Kahoot GET page!");
+		res.end("Kahoot GET page!");
 	});
 	kahootRoute.post("/", async function(req, res) {
 		res.type("text");
