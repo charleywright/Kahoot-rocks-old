@@ -24,12 +24,10 @@
             v-if="someSuccess"
             transition="fade-transition"
             type="success"
+            >{{ successMessage }}</v-alert
           >
-            {{ successMessage }}
-          </v-alert>
           <v-card class="mb-12">
-            <v-card-subtitle>Join a game</v-card-subtitle>
-            <div class="d-flex align-center pa-5 pt-0">
+            <v-form class="d-flex align-center pa-5 pt-12" v-model="input">
               <v-text-field
                 v-model="pin"
                 :rules="pinRules"
@@ -44,7 +42,7 @@
                 label="Username"
                 hide-details="auto"
               ></v-text-field>
-            </div>
+            </v-form>
             <div class="text-center">
               <v-btn
                 v-on:click="Kahoot()"
@@ -60,15 +58,59 @@
           <v-expansion-panels>
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Advanced settings</v-expansion-panel-header
+                >Advanced features</v-expansion-panel-header
               >
               <v-expansion-panel-content>
-                <v-text-field
-                  v-model="delay"
-                  class="mr-5"
-                  label="Answer delay (ms)"
-                  hide-details="auto"
-                ></v-text-field>
+                <v-form v-model="advanced">
+                  <v-text-field
+                    v-model="delay"
+                    :rules="delayRules"
+                    label="Answer delay (ms)"
+                    hide-details="auto"
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="endpoint"
+                    :rules="endpointRules"
+                    label="Custom API endpoint"
+                    hide-details="auto"
+                  ></v-text-field>
+                </v-form>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Instructions for use</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Laborum nulla velit exercitation dolore do sint ea velit ea.
+                  Veniam commodo tempor nisi elit occaecat exercitation
+                  excepteur fugiat ut fugiat est sunt consequat voluptate. Sunt
+                  eu exercitation consequat do consectetur. Est laboris in ea
+                  voluptate non ad proident pariatur esse aliqua labore sint
+                  qui. Consequat officia minim ipsum consequat incididunt nulla
+                  incididunt id mollit laboris ullamco nulla irure consequat.
+                  Nostrud pariatur ullamco Lorem enim deserunt. Non eu officia
+                  do pariatur aliquip non consequat enim exercitation cillum
+                  mollit voluptate.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>How it works</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <p>
+                  Laborum nulla velit exercitation dolore do sint ea velit ea.
+                  Veniam commodo tempor nisi elit occaecat exercitation
+                  excepteur fugiat ut fugiat est sunt consequat voluptate. Sunt
+                  eu exercitation consequat do consectetur. Est laboris in ea
+                  voluptate non ad proident pariatur esse aliqua labore sint
+                  qui. Consequat officia minim ipsum consequat incididunt nulla
+                  incididunt id mollit laboris ullamco nulla irure consequat.
+                  Nostrud pariatur ullamco Lorem enim deserunt. Non eu officia
+                  do pariatur aliquip non consequat enim exercitation cillum
+                  mollit voluptate.
+                </p>
               </v-expansion-panel-content>
             </v-expansion-panel>
           </v-expansion-panels>
@@ -119,9 +161,9 @@
       <div>
         <span ma-auto>&copy; 2020 Wag1 Memeing</span>
         <span class="px-1">|</span>
-        <a href="https://wag1memeing.com/discord">Discord Server</a>
+        <a href="/terms.html">Terms & Conditions</a>
         <span class="px-1">|</span>
-        <a href="https://googl.com">Donate</a>
+        <a href="/privacy.html">Privacy Policy</a>
       </div>
     </v-footer>
   </v-app>
@@ -129,13 +171,17 @@
 
 <script>
 export default {
+  name: "Home",
   props: {
     source: String
   },
   data: () => ({
     pin: "",
     username: "",
+    input: false,
     delay: "",
+    endpoint: "",
+    advanced: false,
     someError: false,
     errorMessage: "",
     someSuccess: false,
@@ -170,6 +216,20 @@ export default {
         let regex = /^[0-9]*$/gm;
         return regex.test(value) || "Has to be a number";
       }
+    ],
+    delayRules: [
+      value => {
+        let regex = /^[0-9]*$/gm;
+        return regex.test(value) || value == "" ? true : "Not a number";
+      }
+    ],
+    endpointRules: [
+      value => {
+        let regex = new RegExp(
+          /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}|https?:\/\/[a-zA-Z0-9]+:[0-9]+(?:\.))/gi
+        );
+        return value.match(regex) || value == "" ? true : "Inavlid URL";
+      }
     ]
   }),
   methods: {
@@ -196,15 +256,19 @@ export default {
       if (isNaN(this.pin)) return this.Error("Game pin has to be a number");
       if (isNaN(this.delay)) return this.Error("Delay has to be a number");
 
-      if (this.delay == "") {
-        this.delay = 100;
-      }
-      const RequestURL = "https://api.wag1memeing.com/Kahoot";
+      if (!this.input) return this.Error("Pin and Username criteria not met");
+      if (!this.advanced && this.endpoint != "")
+        return this.Error("URL criteria not met");
+
+      const RequestURL =
+        this.endpoint == ""
+          ? "https://api.wag1memeing.com/Kahoot"
+          : this.endpoint;
 
       const data = {
         pin: Number(this.pin),
         username: this.username,
-        delay: Number(this.delay)
+        delay: this.delay == "" ? 100 : Number(this.delay)
       };
 
       const options = {
