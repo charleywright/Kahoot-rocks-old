@@ -109,5 +109,9 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
 				}
 			});
 		});
+
+		client.on("quizEnd", () => {
+			return;
+		})
 	});
 }
