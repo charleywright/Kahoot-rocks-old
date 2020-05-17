@@ -158,14 +158,14 @@
     </v-container>
 
     <v-footer app class="d-flex flex-column text-center">
-      <div style="font-size: 13px;" v-if="!$vuetify.breakpoint.smAndUp">
+      <div style="font-size: 13px; text-align: center;" v-if="!$vuetify.breakpoint.smAndUp">
         <span ma-auto>&copy; 2020 Wag1 Memeing</span>
         <span class="px-1">|</span>
         <a href="/terms.html">Terms & Conditions</a>
         <span class="px-1">|</span>
         <a href="/privacy.html">Privacy Policy</a>
       </div>
-      <div v-if="$vuetify.breakpoint.smAndUp">
+      <div style="text-align: center;" v-if="$vuetify.breakpoint.smAndUp">
         <span ma-auto>&copy; 2020 Wag1 Memeing</span>
         <span class="px-1">|</span>
         <a href="/terms.html">Terms & Conditions</a>
