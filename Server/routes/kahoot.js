@@ -3,6 +3,7 @@ const Fetch = require("node-fetch");
 const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
+const shell = require("shelljs");
 
 module.exports = (function () {
   "use strict";
@@ -24,15 +25,13 @@ module.exports = (function () {
       return;
     }
 
-
+    res.status(200).end("All good");
     Fetch("https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json").then(res => res.json()).then(body => {
       let currPackage = JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json")))
       if(body.version > currPackage.version){
-        // Do the update
+        shell.exec("cd ../ && git pull origin V4 && cd Server && npm install");
       }
     });
-    res.status(200).end("All good");
-
 
     //Go(pin, username, delay, res);
   });
