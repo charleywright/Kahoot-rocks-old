@@ -1,25 +1,25 @@
 {
-	"name": "kahoot-auto-answer",
-	"version": "1.0.9",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"dev": "nodemon index.js",
-		"run": "node index.js"
-	},
-	"author": "Charley Wright",
-	"license": "ISC",
-	"devDependencies": {
-		"nodemon": "^2.0.2"
-	},
-	"dependencies": {
-		"body-parser": "^1.19.0",
-		"cors": "^2.8.5",
-		"express": "^4.17.1",
-		"kahoot.js-updated": "git+https://github.com/theusaf/kahoot.js-updated.git",
-		"node-fetch": "^2.6.0",
-		"promise": "^8.1.0",
-		"shelljs": "^0.8.4",
-		"uuid": "^8.0.0"
-	}
+  "name": "kahoot-auto-answer",
+  "version": "1.0.10",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "run": "node index.js"
+  },
+  "author": "Charley Wright",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "kahoot.js-updated": "git+https://github.com/theusaf/kahoot.js-updated.git",
+    "node-fetch": "^2.6.0",
+    "promise": "^8.1.0",
+    "shelljs": "^0.8.4",
+    "uuid": "^8.0.0"
+  }
 }

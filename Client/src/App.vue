@@ -28,7 +28,7 @@
           >
           <v-alert transition="fade-transition" type="error">
             Currently, some Kahoot's with non-English characters in their names
-            (Æ, Ë, Π, Σ, Ϗ etc) may not work properly. Fix coming soon.
+            such as Æ, Ë, Π, Σ, Ϗ etc may not work properly. Fix coming soon.
           </v-alert>
           <v-card class="mb-12">
             <v-form class="d-flex align-center pa-5 pt-12" v-model="input">
