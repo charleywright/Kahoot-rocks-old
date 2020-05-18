@@ -60,7 +60,7 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
     URL = URL.replace(regExp, "");
     URL = encodeURI(URL);
     let possibleResults = [];
-    let res = await Fetch(URL).catch(err => console.log(err));
+    let res = await Fetch(URL).catch((err) => console.log(err));
     let body = await res.json();
 
     for (entity of body.entities) {
@@ -133,17 +133,25 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
         fs.readFileSync(path.join(__dirname, "../users.json"))
       );
       users.splice(users.indexOf(id));
-        fs.writeFileSync(
-          path.join(__dirname, "../users.json"),
-          JSON.stringify(users, null, 2)
+      fs.writeFileSync(
+        path.join(__dirname, "../users.json"),
+        JSON.stringify(users, null, 2)
       );
-      if(users.length == 0){
-        Fetch("https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json").then(res => res.json()).then(body => {
-        let currPackage = JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json")))
-        if(body.version > currPackage.version){
-          shell.exec('cd ../ && sudo git stash && sudo git pull origin V4 && cd Server && sudo npm install && sudo pm2 restart "Kahoot API"');
-        }
-    });
+      if (users.length == 0) {
+        Fetch(
+          "https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json"
+        )
+          .then((res) => res.json())
+          .then((body) => {
+            let currPackage = JSON.parse(
+              fs.readFileSync(path.join(__dirname, "../package.json"))
+            );
+            if (body.version > currPackage.version) {
+              shell.exec(
+                'cd ../ && sudo git stash && sudo git pull origin V4 && cd Server && sudo npm install && sudo pm2 restart "Kahoot API" && cd ../../ && sudo chown ubuntu Kahoot-auto-answer -R'
+              );
+            }
+          });
       }
     });
   });
