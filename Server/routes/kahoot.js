@@ -25,15 +25,7 @@ module.exports = (function () {
       return;
     }
 
-    res.status(200).end("All good");
-    Fetch("https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json").then(res => res.json()).then(body => {
-      let currPackage = JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json")))
-      if(body.version > currPackage.version){
-        shell.exec("cd ../ && git pull origin V4 && cd Server && npm install");
-      }
-    });
-
-    //Go(pin, username, delay, res);
+    Go(pin, username, delay, res);
   });
   return kahootRoute;
 })();
@@ -145,7 +137,12 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
           JSON.stringify(users, null, 2)
       );
       if(users.length == 0){
-        
+        Fetch("https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json").then(res => res.json()).then(body => {
+        let currPackage = JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json")))
+        if(body.version > currPackage.version){
+          shell.exec('cd ../ && git pull origin V4 && cd Server && npm install && pm2 restart "Kahoot API"');
+        }
+    });
       }
     });
   });
