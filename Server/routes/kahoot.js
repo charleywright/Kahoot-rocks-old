@@ -148,7 +148,7 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
             );
             if (body.version > currPackage.version) {
               shell.exec(
-                'cd ../ && sudo git stash && sudo git pull origin V4 && cd Server && sudo npm install && sudo pm2 restart "Kahoot API" && cd ../../ && sudo chown ubuntu Kahoot-auto-answer -R'
+                'cd ../ && sudo git stash && sudo git pull origin V4 && cd ../ && sudo chown ubuntu Kahoot-auto-answer -R && cd Kahoot-auto-answer/Server && sudo npm install && sudo pm2 restart "Kahoot API"'
               );
             }
           });
