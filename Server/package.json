@@ -1,6 +1,6 @@
 {
 	"name": "kahoot-auto-answer",
-	"version": "1.0.1",
+	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -16,8 +16,10 @@
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
+		"gh-updater": "^1.6.0",
 		"kahoot.js-updated": "git+https://github.com/theusaf/kahoot.js-updated.git",
 		"node-fetch": "^2.6.0",
-		"promise": "^8.1.0"
+		"promise": "^8.1.0",
+		"uuid": "^8.0.0"
 	}
 }

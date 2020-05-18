@@ -3,7 +3,6 @@ const Fetch = require("node-fetch");
 const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
-const updater = require('gh-updater');
 
 module.exports = (function () {
   "use strict";
@@ -25,7 +24,17 @@ module.exports = (function () {
       return;
     }
 
-    Go(pin, username, delay, res);
+
+    Fetch("https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json").then(res => res.json()).then(body => {
+      let currPackage = JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json")))
+      if(body.version > currPackage.version){
+        // Do the update
+      }
+    });
+    res.status(200).end("All good");
+
+
+    //Go(pin, username, delay, res);
   });
   return kahootRoute;
 })();
@@ -130,17 +139,15 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
     client.on("quizEnd", () => {
       let users = JSON.parse(
         fs.readFileSync(path.join(__dirname, "../users.json"))
-	  );
-	  console.log(users);
-	  users.splice(users.indexOf(id));
-	  console.log(users);
-      fs.writeFileSync(
-        path.join(__dirname, "../users.json"),
-        JSON.stringify(users, null, 2)
-	  );
-	  if(users.length == 0){
-		updater.check_version('wag1memeing/Kahoot-auto-answer-V4', version_data => console.log(version_data) );
-	  }
+      );
+      users.splice(users.indexOf(id));
+        fs.writeFileSync(
+          path.join(__dirname, "../users.json"),
+          JSON.stringify(users, null, 2)
+      );
+      if(users.length == 0){
+        
+      }
     });
   });
 }
