@@ -139,7 +139,7 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
         JSON.stringify(users, null, 2)
 	  );
 	  if(users.length == 0){
-		updater.check_version('wag1memeing/Kahoot-auto-answer', version_data => console.log(version_data) );
+		updater.check_version('wag1memeing/Kahoot-auto-answer-V4', version_data => console.log(version_data) );
 	  }
     });
   });
