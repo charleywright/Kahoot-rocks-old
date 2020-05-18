@@ -58,8 +58,9 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
     let regExp = /\s+/g;
     let URL = `https://create.kahoot.it/rest/kahoots/?query=${QUIZ.name}&cursor=0&limit=50&topics=&grades=&orderBy=relevance&searchCluster=1&includeExtendedCounters=false`;
     URL = URL.replace(regExp, "");
+    URL = encodeURI(URL);
     let possibleResults = [];
-    let res = await Fetch(URL);
+    let res = await Fetch(URL).catch(err => console.log(err));
     let body = await res.json();
 
     for (entity of body.entities) {

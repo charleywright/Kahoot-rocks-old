@@ -26,6 +26,10 @@
             type="success"
             >{{ successMessage }}</v-alert
           >
+          <v-alert transition="fade-transition" type="error">
+            Currently, some Kahoot's with non-English characters in their names
+            (Æ, Ë, Π, Σ, Ϗ etc) may not work properly. Fix coming soon.
+          </v-alert>
           <v-card class="mb-12">
             <v-form class="d-flex align-center pa-5 pt-12" v-model="input">
               <v-text-field
@@ -83,33 +87,18 @@
               >
               <v-expansion-panel-content>
                 <p>
-                  Laborum nulla velit exercitation dolore do sint ea velit ea.
-                  Veniam commodo tempor nisi elit occaecat exercitation
-                  excepteur fugiat ut fugiat est sunt consequat voluptate. Sunt
-                  eu exercitation consequat do consectetur. Est laboris in ea
-                  voluptate non ad proident pariatur esse aliqua labore sint
-                  qui. Consequat officia minim ipsum consequat incididunt nulla
-                  incididunt id mollit laboris ullamco nulla irure consequat.
-                  Nostrud pariatur ullamco Lorem enim deserunt. Non eu officia
-                  do pariatur aliquip non consequat enim exercitation cillum
-                  mollit voluptate.
-                </p>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-header>How it works</v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <p>
-                  Laborum nulla velit exercitation dolore do sint ea velit ea.
-                  Veniam commodo tempor nisi elit occaecat exercitation
-                  excepteur fugiat ut fugiat est sunt consequat voluptate. Sunt
-                  eu exercitation consequat do consectetur. Est laboris in ea
-                  voluptate non ad proident pariatur esse aliqua labore sint
-                  qui. Consequat officia minim ipsum consequat incididunt nulla
-                  incididunt id mollit laboris ullamco nulla irure consequat.
-                  Nostrud pariatur ullamco Lorem enim deserunt. Non eu officia
-                  do pariatur aliquip non consequat enim exercitation cillum
-                  mollit voluptate.
+                  Kahoot.rocks is very simple to use, all you have to do is
+                  enter the game pin, and the username you want to use. Then
+                  click Join Game. There are also some more advanced features,
+                  although they do not normally need to be used, as they are
+                  entirely optional. Answer delay is how long the bot should
+                  wait before it answers the current question, meaning you can
+                  make the bot answer super fast, or slow it down as much as you
+                  want. 100 is a good starting point as it isn't too suspicious
+                  although going slower may be better. You can also specify an
+                  API endpoint, although this is a setting mainly for
+                  developers, and shouldn't be used unless you know what you are
+                  doing. (It's where your POST request is sent).
                 </p>
               </v-expansion-panel-content>
             </v-expansion-panel>
@@ -158,7 +147,10 @@
     </v-container>
 
     <v-footer app class="d-flex flex-column text-center">
-      <div style="font-size: 13px; text-align: center;" v-if="!$vuetify.breakpoint.smAndUp">
+      <div
+        style="font-size: 13px; text-align: center;"
+        v-if="!$vuetify.breakpoint.smAndUp"
+      >
         <span ma-auto>&copy; 2020 Wag1 Memeing</span>
         <span class="px-1">|</span>
         <a href="/terms.html">Terms & Conditions</a>
@@ -268,9 +260,7 @@ export default {
         return this.Error("URL criteria not met");
 
       const RequestURL =
-        this.endpoint == ""
-          ? "https://kahoot.rocks/api"
-          : this.endpoint;
+        this.endpoint == "" ? "https://kahoot.rocks/api" : this.endpoint;
 
       const data = {
         pin: Number(this.pin),
