@@ -269,7 +269,7 @@ export default {
 
       const RequestURL =
         this.endpoint == ""
-          ? "https://api.wag1memeing.com/Kahoot"
+          ? "https://api.kahoot.rocks/api"
           : this.endpoint;
 
       const data = {
