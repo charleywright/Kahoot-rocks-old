@@ -306,10 +306,12 @@ export default {
 
       switch (await res.text()) {
         case "All good":
-          this.Success("Request successful");
+          this.Success("Joined game succsfully");
           break;
         case "Incorrect pin":
-          this.Error("Invalid game PIN");
+          this.Error(
+            "Either the game pin is invalid, or that username is taken"
+          );
           break;
         case "Information incorrect":
           this.Error("Information in incorrect format");
