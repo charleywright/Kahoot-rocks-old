@@ -17,6 +17,10 @@
           >
             Kahoot.rocks
           </h1>
+          <v-alert transition="fade-transition" type="warning">
+            Currently, some Kahoot's with non-English characters in their names
+            (Æ, Ë, Π, Σ, Ϗ etc) may not work properly. Fix coming soon.
+          </v-alert>
           <v-alert v-if="someError" transition="fade-transition" type="error">
             {{ errorMessage }}
           </v-alert>
@@ -26,10 +30,6 @@
             type="success"
             >{{ successMessage }}</v-alert
           >
-          <v-alert transition="fade-transition" type="error">
-            Currently, some Kahoot's with non-English characters in their names
-            such as Æ, Ë, Π, Σ, Ϗ etc may not work properly. Fix coming soon.
-          </v-alert>
           <v-card class="mb-12">
             <v-form class="d-flex align-center pa-5 pt-12" v-model="input">
               <v-text-field
@@ -83,7 +83,7 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header
-                >Instructions for use</v-expansion-panel-header
+                >How do I use it?</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <p>
@@ -99,6 +99,42 @@
                   API endpoint, although this is a setting mainly for
                   developers, and shouldn't be used unless you know what you are
                   doing. (It's where your POST request is sent).
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >How does it work?</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Kahoot.rocks works by acting as a client, and using the
+                  information it is sent to search for Kahoot's. As the quiz
+                  goes on, the bot will narrow down the possible Kahoot's until
+                  there is only one. Because of the way this works, most of the
+                  time before the first question has even started, the bot
+                  already knows the answers. If the bot for some reason does not
+                  know the answers, (normally on a private Kahoot because the
+                  answers aren't publicly available), it will answer randomly.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Why was it was created?</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Kahoot.rocks was initially created as a fun way for a
+                  developer at
+                  <a href="https://wag1memeing.com">Wag1 Memeing</a> to learn
+                  JavaScript and Node.js, while making a fun tool at the same
+                  time to mess around with at school, although it soon expanded
+                  into a full-on project. The code went through many revisions,
+                  to increase speed and accurcay, along with the UI changing
+                  multiple times. Now the project is being worked on constantly,
+                  trying to find new ways to solve problems, faster ways to get
+                  answers, and inprove accuracy to 100%.
                 </p>
               </v-expansion-panel-content>
             </v-expansion-panel>
@@ -147,18 +183,8 @@
     </v-container>
 
     <v-footer app class="d-flex flex-column text-center">
-      <div
-        style="font-size: 13px; text-align: center;"
-        v-if="!$vuetify.breakpoint.smAndUp"
-      >
-        <span ma-auto>&copy; 2020 Wag1 Memeing</span>
-        <span class="px-1">|</span>
-        <a href="/terms.html">Terms & Conditions</a>
-        <span class="px-1">|</span>
-        <a href="/privacy.html">Privacy Policy</a>
-      </div>
-      <div style="text-align: center;" v-if="$vuetify.breakpoint.smAndUp">
-        <span ma-auto>&copy; 2020 Wag1 Memeing</span>
+      <div style="font-size: 12px; text-align: center;">
+        <span ma-auto>&copy; 2020 Kahoot Rocks</span>
         <span class="px-1">|</span>
         <a href="/terms.html">Terms & Conditions</a>
         <span class="px-1">|</span>
@@ -283,13 +309,13 @@ export default {
           this.Success("Request successful");
           break;
         case "Incorrect pin":
-          this.Success("Invalid game PIN");
+          this.Error("Invalid game PIN");
           break;
         case "Information incorrect":
-          this.Success("Information in incorrect format");
+          this.Error("Information in incorrect format");
           break;
         case "Pin or Delay is not a number":
-          this.Success("Pin or Delay is not a number");
+          this.Error("Pin or Delay is not a number");
           break;
       }
     }
