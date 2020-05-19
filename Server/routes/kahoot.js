@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
 const shell = require("shelljs");
+const date = require("date-and-time");
 
 module.exports = (function () {
   "use strict";
@@ -59,6 +60,9 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
     let URL = `https://create.kahoot.it/rest/kahoots/?query=${QUIZ.name}&cursor=0&limit=50&topics=&grades=&orderBy=relevance&searchCluster=1&includeExtendedCounters=false`;
     URL = URL.replace(regExp, "");
     URL = encodeURI(URL);
+    let now = new Date();
+    now = date.addHours(now, -1);
+    console.log(`${URL} @ ${date.format(now, "YYYY/MM/DD HH:mm:ss")} as ${id}`);
     let possibleResults = [];
     let res = await Fetch(URL).catch((err) => console.log(err));
     let body = await res.json();
