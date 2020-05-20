@@ -56,10 +56,10 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
     });
 
   client.on("quizStart", async (QUIZ) => {
-    let regExp = /\s+/g;
+    let regExp = /[\s]{2,}/g;
     let URL = `https://create.kahoot.it/rest/kahoots/?query=${QUIZ.name}&cursor=0&limit=50&topics=&grades=&orderBy=relevance&searchCluster=1&includeExtendedCounters=false`;
     URL = URL.replace(regExp, "");
-    URL = encodeURI(URL);
+    URL = encodeURIComponent(URL);
     let now = new Date();
     now = date.addHours(now, -1);
     console.log(`${URL} @ ${date.format(now, "YYYY/MM/DD HH:mm:ss")} as ${id}`);
