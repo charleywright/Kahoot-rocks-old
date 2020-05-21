@@ -276,6 +276,8 @@
       <div style="font-size: 12px; text-align: center;">
         <span ma-auto>&copy; 2020 Kahoot Rocks</span>
         <span class="px-1">|</span>
+        <span>v1.0.23</span>
+        <span class="px-1">|</span>
         <a href="/terms.html">Terms & Conditions</a>
         <span class="px-1">|</span>
         <a href="/privacy.html">Privacy Policy</a>
