@@ -83,7 +83,7 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header
-                >How do I use it?</v-expansion-panel-header
+                >Instructions for use</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <p>
@@ -104,25 +104,46 @@
             </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-header
-                >How does it work?</v-expansion-panel-header
+                >Help!! It's not working</v-expansion-panel-header
               >
               <v-expansion-panel-content>
                 <p>
-                  Kahoot.rocks works by acting as a client, and using the
-                  information it is sent to search for Kahoot's. As the quiz
-                  goes on, the bot will narrow down the possible Kahoot's until
-                  there is only one. Because of the way this works, most of the
-                  time before the first question has even started, the bot
-                  already knows the answers. If the bot for some reason does not
-                  know the answers, (normally on a private Kahoot because the
-                  answers aren't publicly available), it will answer randomly.
+                  There are a few reasons Kahoot.rocks might not be working
+                  properly, with the main one being that the Kahoot is private
+                  although there are a few settings that can be activated to
+                  stop bots from working. These are
+                  <code>Randomize order of questions</code>,
+                  <code>Randomize order of answers</code> and
+                  <code>2 Step Join</code>. The bot could also not be working if
+                  the servers have crashed (very unlikely) or that they are
+                  updating (very rare). In general, if you want help, or the bot
+                  isn't working, create a ticket in our
+                  <a href="https://wag1memeing.com/discord">Discord Server</a>
+                  (channel is #support). Our admins will respond as soon as they
+                  can. A very useful piece of information to help us diagnose
+                  the issue, is either the name of the Kahoot, or the URL to it
+                  (the one that allows you to host a game)
                 </p>
               </v-expansion-panel-content>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header
-                >Why was it was created?</v-expansion-panel-header
-              >
+              <v-expansion-panel-header>How it works</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <p>
+                  Kahoot.rocks works by acting as a client, and using the
+                  information it is sent to search for Kahoot's. As the quiz
+                  goes on, the bot will narrow down the possible candidates
+                  until there is only one. Because of the way this works, most
+                  of the time before the first question has even started, the
+                  bot already knows the correct answers. If the bot for some
+                  reason does not know or cannot find the answers, (normally on
+                  a private Kahoot because the answers aren't publicly
+                  available), it will answer randomly.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>Why it exists</v-expansion-panel-header>
               <v-expansion-panel-content>
                 <p>
                   Kahoot.rocks was initially created as a fun way for a
@@ -135,6 +156,75 @@
                   multiple times. Now the project is being worked on constantly,
                   trying to find new ways to solve problems, faster ways to get
                   answers, and inprove accuracy to 100%.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>Who made it</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <p>
+                  Kahoot.rocks was made by and is maintained by Charley Wright,
+                  a web developer from Scotland. He enjoys making projects that
+                  other people can benefit from, and also a challenge, such as
+                  learning a new technology or programming language. He mainly
+                  focusses on web development, although has dabbled in game dev
+                  and desktop apps. His current focus is server-side
+                  architechture and programming, and building API's.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Why should it be used</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Kahoot.rocks normally would be used when you either do not
+                  know the answers to the questions, or if you simply cannot be
+                  bothered answering although they can also be used if there is
+                  a prize for getting first or something similar. (Using a bot
+                  is unethical, and could result in you gtting in trouble. That
+                  is entirely your fault, and we take no responsibility with how
+                  you use the bot). You can also use Kahoot.rocks for whatever
+                  reason you like, it's not set in stone or anything, and there
+                  aren't any rules.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Kahoot.rocks is banned at my
+                school/workplace</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Do not worry, we have you covered. Try one of our backup
+                  links:<br /><a href="https://kahoot.wag1memeing.com"
+                    >kahoot.wag1memeing.com</a
+                  ><br /><a href="https://kahoot.charleyw.com"
+                    >kahoot.charleyw.com</a
+                  ><br /><a href="https://kahoot.quizlet.rocks"
+                    >kahoot.quizlet.rocks</a
+                  >
+                  <br />If you have a domain and want to host a backup link,
+                  please open a ticket in our
+                  <a href="https://wag1memeing.com/discord">Discord Server</a>.
+                </p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header
+                >Some other stuff</v-expansion-panel-header
+              >
+              <v-expansion-panel-content>
+                <p>
+                  Because Kahoot.rocks is entirely free to use, it could
+                  potentially get shutdown at any time from any number of
+                  reasons. If you want, you can help out by
+                  <a href="https://paypal.me/charleyw0">donating</a> to help pay
+                  for the server costs. Kahoot.rocks is also a project, not a
+                  full enterprise level app, so there is no update schedule,
+                  fixes happen when they happen, so do updates.
                 </p>
               </v-expansion-panel-content>
             </v-expansion-panel>

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.d51e1acbcb9282c4b655d3c72a601de1.js"
+  "/precache-manifest.a3c7b4e76886f5abedc24450077baa1d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "kahoot.rocks"});
