@@ -1,11 +1,12 @@
 {
   "name": "kahoot-auto-answer",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "run": "node index.js"
+    "run": "node index.js",
+    "start": "node index.js"
   },
   "author": "Charley Wright",
   "license": "ISC",
