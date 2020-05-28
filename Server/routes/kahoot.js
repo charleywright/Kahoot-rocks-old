@@ -140,22 +140,6 @@ function Go(PIN, USERNAME, DELAY, RESPONSE) {
         path.join(__dirname, "../users.json"),
         JSON.stringify(users, null, 2)
       );
-      if (users.length == 0) {
-        Fetch(
-          "https://raw.githubusercontent.com/wag1memeing/Kahoot-auto-answer/V4/Server/package.json"
-        )
-          .then((res) => res.json())
-          .then((body) => {
-            let currPackage = JSON.parse(
-              fs.readFileSync(path.join(__dirname, "../package.json"))
-            );
-            if (body.version > currPackage.version) {
-              shell.exec(
-                'cd ../ && sudo git stash && sudo git pull origin V4 && cd Server && sudo npm install && sudo pm2 restart "Kahoot API"'
-              );
-            }
-          });
-      }
     });
   });
 }
