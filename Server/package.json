@@ -19,7 +19,7 @@
     "date-and-time": "^0.13.1",
     "express": "^4.17.1",
     "kahoot.js-updated": "git+https://github.com/theusaf/kahoot.js-updated.git",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "promise": "^8.1.0",
     "shelljs": "^0.8.4",
     "uuid": "^8.0.0"
